@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: experiment-decision-api
+    runtime: python
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn wsgi:app
+    envVars:
+      - key: CORS_ORIGINS
+        value: https://YOUR-VERCEL-APP.vercel.app
