@@ -52,6 +52,7 @@ export const useStore = create<State>((set, get) => ({
   },
 
   init: async () => {
+    set({ error: null });
     try {
       const [campaigns, peeking, scenarios] = await Promise.all([
         api.getCampaigns(), api.getPeeking(), api.getScenarios(),

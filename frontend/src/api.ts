@@ -5,7 +5,8 @@ import type {
 
 const client = axios.create({
   baseURL: import.meta.env.VITE_API_URL ?? "http://localhost:5000",
-  timeout: 15000,
+  // Render's free tier can take ~50s to wake from idle
+  timeout: 60000,
 });
 
 export function errorMessage(e: unknown): string {
